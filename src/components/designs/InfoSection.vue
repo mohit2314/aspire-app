@@ -1,0 +1,60 @@
+<template>
+  <div class="info__section">
+    <div class="balance__col">
+      <div class="label">Available Balance</div>
+      <div class="balance__info">
+        <div class="currency__badge"><span>$$</span></div>
+        <div class="amount">3,000</div>
+      </div>
+    </div>
+    <!-- CTA Btn -->
+    <div class="new__card--cta">
+<q-btn style="background: #325BAF; color: white; font-size:13px;"  icon="add_circle" label="new card"></q-btn>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {};
+</script>
+
+<style lang="scss">
+.info__section{
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.balance__col{
+    display: flex;
+    flex-direction: column;
+.label{
+    font-size: 14px;
+    color: #222222;
+}
+    .balance__info{
+        display: flex;
+        align-items: center;
+        .currency__badge{
+            text-align: center;
+            background-color: #01D167;
+            padding: 2px;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 13px;
+            width: 40px;
+            height: 24px;
+            margin-right: 10px;
+            
+            // font-weight: 500;
+        }
+
+        .amount{
+font-size: 26px;
+font-weight: 600;
+        }
+    }
+}
+
+
+</style>
