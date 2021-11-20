@@ -34,6 +34,6 @@ export default {
 .main__section {
   width: 100%;
   max-width: 1302px;
-  padding: 28px;
+  padding: 48px;
 }
 </style>
