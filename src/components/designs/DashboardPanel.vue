@@ -8,8 +8,8 @@
       <div class="left-col">
           <!-- Carousel Section -->
         <div class="carousel__section">
-          <div>
-            <img src="../../assets/remove_red_eye-24px.svg" alt="" /> Show card
+          <div class="view__card-number">
+            <img src="../../assets/remove_red_eye-24px.svg" alt="" style="margin-right:4px;"/> Show card
             number
           </div>
           <credit-card></credit-card>
@@ -52,7 +52,7 @@
               />
             </div>
             <div class="label">Recent Transactions</div>
-            <div class="expand-icon">
+            <div class="expand-icon expanded-icon">
               <img src="../../assets/down-arrow.svg" alt="" />
             </div>
           </div>
@@ -74,6 +74,27 @@
               </div>
               <div class="amount">
                 <span>+ S$ 150</span>&nbsp;
+                <img src="../../assets/next.svg" alt="" />
+              </div>
+            </div>
+            <!--  -->
+             <div v-for="(transaction,k) in transactionsList" :key="k" class="transaction__row">
+              <div class="icon">
+                <img :src="require(`../../assets/${transaction.icon}`)" alt="" />
+              </div>
+              <div class="info">
+                <div class="name">Hamleys</div>
+                <div class="date">20 May 2020</div>
+                <div class="refund__detail">
+                    <div class="icon">
+                    
+                  <img src="../../assets/business-and-finance.svg" alt="" />
+                  </div>
+                  Refund on debit card
+                </div>
+              </div>
+              <div class="amount">
+                <span style="color:#000;">- S$ 150</span>&nbsp;
                 <img src="../../assets/next.svg" alt="" />
               </div>
             </div>
@@ -113,6 +134,20 @@ export default {
                   icon:"Deactivate_card.svg",
                   label:"Cancel card"
               },
+          ],
+          transactionsList:[
+              {
+                  icon:'flights.svg',
+                  name:'Hamleys'
+              },
+              {
+                  icon:'megaphone.svg',
+                  name:'Hamleys'
+              },
+              {
+                  icon:'file-storage.svg',
+                  name:'Hamleys'
+              },
           ]
       }
   }
@@ -143,12 +178,22 @@ export default {
   margin-top: 16px;
   display: flex;
   padding: 16px;
+  flex-wrap: wrap;
 }
 
 .left-col {
   width: 55%;
 }
-
+.view__card-number{
+     width: 414px;
+     padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #01D167;
+    font-size: 12px;
+    font-weight: 600;
+}
 .features__section{
     padding: 16px;
     display: flex;
@@ -183,6 +228,7 @@ align-items: center;
 .accordian-icon {
   height: 54px;
   width: 24px;
+ 
 }
 
 .accordian-header {
@@ -199,10 +245,13 @@ align-items: center;
   height: 72px;
   color: #0c365a;
   margin-bottom: 16px;
-
+.expanded-icon{
+    transform: rotate(180deg);
+}
   .--expanded {
     border: 1px solid #fcfcfc;
     height: 520px;
+    
   }
 }
 .accordian-header:hover {
@@ -210,10 +259,13 @@ align-items: center;
 }
 .recent__transaction--content{
     padding: 8px 16px;
+    outline: 1px solid #F0F0F0;
 }
 .transaction__row{
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F0F0F0;
     display: flex;
-
+margin: 14px 0px;
     .icon{
         height: 48px;
         width: 48px;
