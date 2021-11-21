@@ -1,27 +1,14 @@
 <template>
-  <div class="account__info-card">
-<div class="account__avtar">
-<img src="../assets/Account.svg"  alt="">
-</div>
-<div class="personal__details q-pa-lg">
-    <div class="name text-h6 text-indigo-10 q-mb-md">
-        Mohit Patel
-    </div>
-    <div class="acc-no text-bold text-grey-8">
-        Account no: xxxx xxxx 1234
-    </div>
-    <div class="date text-grey">
-        Member since : 20 May,2021
-    </div>
-
-</div>
-
-  </div>
+  <account-info-card></account-info-card>
+  
 </template>
 
 <script>
+import AccountInfoCard from "components/AccountInfoCard.vue";
 export default {
-
+components:{
+    AccountInfoCard
+}
 }
 </script>
 
@@ -33,7 +20,7 @@ export default {
   margin-top: 16px;
   display: flex;
   padding: 16px;
-  flex-wrap: wrap;
+  
 .account__avtar{
 background-color: #0000001F;
 border-radius: 50%;
@@ -44,6 +31,39 @@ justify-content: center;
 align-items: center;
 }
 
+}
+.personal__details{
+    display: flex;
+    width: 40%;
+}
+
+.account__detail-cards{
+    width: 100%;
+display: flex;
+justify-content: space-around;
+    .detail-card{
+        border: 1px solid #0000001F;
+        border-radius: 16px;
+        padding: 16px;
+        width: 162px;
+        height: 122px;
+
+        .card-row{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+}
+.icon{
+    background-color: #DDFFEC;
+    height: 52px;
+    width: 52px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>

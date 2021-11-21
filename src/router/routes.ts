@@ -21,6 +21,7 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path:'/ui-challenge',
+    name:"UI",
     component:()=>import('pages/UiChallenge.vue')
   },
 
