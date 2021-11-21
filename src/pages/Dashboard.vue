@@ -1,13 +1,26 @@
 <template>
+<q-layout class="q-pa-lg">
   <account-info-card></account-info-card>
-  
+  <div class="row">
+<loan-panel>
+
+</loan-panel>
+
+<offers-panel></offers-panel>
+</div>
+</q-layout>
 </template>
 
 <script>
 import AccountInfoCard from "components/AccountInfoCard.vue";
+import LoanPanel from "components/LoanPanel.vue"
+import OffersPanel from "components/OffersPanel.vue"
+
 export default {
 components:{
-    AccountInfoCard
+    AccountInfoCard,
+    LoanPanel,
+    OffersPanel
 }
 }
 </script>

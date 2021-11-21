@@ -76,7 +76,10 @@ export default {
   box-shadow: 0px 2px 12px #00000014;
   margin-top: 16px;
   display: flex;
+// flex-wrap: wrap;
+
   padding: 16px;
+  overflow: hidden;
   
 .account__avtar{
 background-color: #0000001F;
@@ -91,11 +94,11 @@ align-items: center;
 }
 .personal__details{
     display: flex;
-    width: 40%;
+    width: 50%;
 }
 
 .account__detail-cards{
-    width: 100%;
+    width: 60%;
 display: flex;
 justify-content: space-around;
     .detail-card{
