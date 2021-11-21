@@ -3,8 +3,21 @@ import { RouteRecordRaw } from 'vue-router';
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
+    name: 'Home',
+    redirect: { name: 'Login' },
+    // component: () => import(/* webpackChunkName: "home" */ '../pages/Home.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import( 'pages/Login.vue'),
+  },
+  {
+    path: '/dashboard',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/Index.vue') }],
+    children: [{ path: '',
+    name:'Dashboard',
+    component: () => import('pages/Index.vue') }],
   },
   {
     path:'/ui-challenge',

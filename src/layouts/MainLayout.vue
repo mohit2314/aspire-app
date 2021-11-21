@@ -24,19 +24,26 @@
       show-if-above
       bordered
     >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
+     <div class="navigation__panel">
+    <div class="brand">
+      <div class="logo">
+        <img src="../assets/Logo.svg" alt="asprie-logo" />
+      </div>
+      <div class="tagline">
+        Trusted way of banking for 3,000+ SMEs and startups in Singapore
+      </div>
+    </div>
+    <!--Navigation items list  -->
+    <div>
+      <ul class="navigation__list">
+        <li v-for="item in navigationListItems" :key="item" class="navigation__list--item">
+          <span><img :src="require(`../assets/${item.icon}`)" alt="home" /></span>
+          <span class="label">{{item.itemLabel}}</span>
+        </li>
+    
+      </ul>
+    </div>
+  </div>
     </q-drawer>
 
     <q-page-container>
@@ -45,73 +52,97 @@
   </q-layout>
 </template>
 
-<script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
+<script >
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
 
-import { defineComponent, ref } from 'vue'
 
-export default defineComponent({
+
+
+
+export default {
   name: 'MainLayout',
 
   components: {
-    EssentialLink
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
 
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+  data(){
+    return{
+      leftDrawerOpen:false,
+  navigationListItems: [
+        {
+          icon: `Home.svg`,
+          itemLabel: "Home",
+        },
+        {
+          icon: "Card.svg",
+          itemLabel: "Cards",
+        },
+        {
+          icon: "Payments.svg",
+          itemLabel: "Payments",
+        },
+        {
+          icon: "Credit.svg",
+          itemLabel: "Credit",
+        },
+        {
+          icon: "Account.svg",
+          itemLabel: "Settings",
+        },
+      ],
     }
+  },
+  methods:{
+  toggleLeftDrawer () {
+        this.leftDrawerOpen = !this.leftDrawerOpen
+      }
   }
-})
+ 
+  
+}
 </script>
+<style lang="scss">
+.navigation__panel {
+  max-width: 340px;
+  background-color: #0c365a;
+  height: 100vh;
+  width: 20vw;
+  padding: 12px 28px;
+}
+
+.brand {
+  margin: 16px 0px;
+  .logo {
+    padding: 4px 0px;
+  }
+  .tagline {
+    color: #fff;
+    opacity: 30%;
+    font-size: 15px;
+    font-family: "Open Sans", "Regular";
+  }
+}
+
+.navigation__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0px;
+}
+.navigation__list--item {
+  padding: 16px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .label {
+    font-size: 16px;
+    color: #fff;
+    margin-left: 14px;
+  }
+}
+</style>
+
