@@ -4,8 +4,8 @@
       <span class="card__tab --active"> My debit cards </span>
       <span class="card__tab"> All company cards </span>
     </div>
-    <div class="dashboard__card-body">
-      <div class="left-col">
+    <div class="dashboard__card-body row">
+      <div class="left-col col-xs-12 col-sm-6 col-md-6">
           <!-- Carousel Section -->
         <div class="carousel__section">
           <div class="view__card-number">
@@ -27,7 +27,7 @@
 </div>
         </div>
       </div>
-      <div class="right-col">
+      <div class="right-col col-xs-12 col-sm-8 col-md-6">
         <div style="max-width: 366px">
           <div class="accordian-header">
             <div>
