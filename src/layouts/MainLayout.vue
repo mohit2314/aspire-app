@@ -11,39 +11,38 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <q-toolbar-title> Quasar App </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-     <div class="navigation__panel">
-    <div class="brand">
-      <div class="logo">
-        <img src="../assets/Logo.svg" alt="asprie-logo" />
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
+      <div class="navigation__panel">
+        <div class="brand">
+          <div class="logo">
+            <img src="../assets/Logo.svg" alt="asprie-logo" />
+          </div>
+          <div class="tagline">
+            Trusted way of banking for 3,000+ SMEs and startups in Singapore
+          </div>
+        </div>
+        <!--Navigation items list  -->
+        <div>
+          <ul class="navigation__list">
+            <li
+              v-for="item in navigationListItems"
+              :key="item"
+              class="navigation__list--item"
+            >
+              <span
+                ><img :src="require(`../assets/${item.icon}`)" alt="home"
+              /></span>
+              <span class="label">{{ item.itemLabel }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="tagline">
-        Trusted way of banking for 3,000+ SMEs and startups in Singapore
-      </div>
-    </div>
-    <!--Navigation items list  -->
-    <div>
-      <ul class="navigation__list">
-        <li v-for="item in navigationListItems" :key="item" class="navigation__list--item">
-          <span><img :src="require(`../assets/${item.icon}`)" alt="home" /></span>
-          <span class="label">{{item.itemLabel}}</span>
-        </li>
-    
-      </ul>
-    </div>
-  </div>
     </q-drawer>
 
     <q-page-container>
@@ -52,24 +51,16 @@
   </q-layout>
 </template>
 
-<script >
-
-
-
-
-
-
+<script>
 export default {
-  name: 'MainLayout',
+  name: "MainLayout",
 
-  components: {
-  },
+  components: {},
 
-
-  data(){
-    return{
-      leftDrawerOpen:false,
-  navigationListItems: [
+  data() {
+    return {
+      leftDrawerOpen: false,
+      navigationListItems: [
         {
           icon: `Home.svg`,
           itemLabel: "Home",
@@ -91,16 +82,14 @@ export default {
           itemLabel: "Settings",
         },
       ],
-    }
+    };
   },
-  methods:{
-  toggleLeftDrawer () {
-        this.leftDrawerOpen = !this.leftDrawerOpen
-      }
-  }
- 
-  
-}
+  methods: {
+    toggleLeftDrawer() {
+      this.leftDrawerOpen = !this.leftDrawerOpen;
+    },
+  },
+};
 </script>
 <style lang="scss">
 .navigation__panel {
@@ -145,4 +134,3 @@ export default {
   }
 }
 </style>
-

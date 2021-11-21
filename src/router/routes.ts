@@ -17,7 +17,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '',
     name:'Dashboard',
-    component: () => import('pages/Index.vue') }],
+    component: () => import('pages/Dashboard.vue') }],
   },
   {
     path:'/ui-challenge',
