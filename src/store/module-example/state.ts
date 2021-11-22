@@ -1,10 +1,12 @@
 export interface ExampleStateInterface {
   prop: boolean;
+  loanAmount:Number;
 }
 
 function state(): ExampleStateInterface {
   return {
-    prop: false
+    prop: false,
+    loanAmount:1000
   }
 };
 

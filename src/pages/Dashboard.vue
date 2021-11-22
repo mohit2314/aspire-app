@@ -2,17 +2,18 @@
 <q-layout class="q-pa-lg">
   <account-info-card></account-info-card>
   <div class="row">
-<loan-panel>
+<loan-apply>
 
-</loan-panel>
+</loan-apply>
 
-<offers-panel></offers-panel>
+<loan-panel></loan-panel>
 </div>
 </q-layout>
 </template>
 
 <script>
 import AccountInfoCard from "components/AccountInfoCard.vue";
+import LoanApply from "components/LoanApply.vue"
 import LoanPanel from "components/LoanPanel.vue"
 import OffersPanel from "components/OffersPanel.vue"
 
@@ -20,6 +21,7 @@ export default {
 components:{
     AccountInfoCard,
     LoanPanel,
+    LoanApply,
     OffersPanel
 }
 }
