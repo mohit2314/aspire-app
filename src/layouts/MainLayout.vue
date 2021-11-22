@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-white q-pa-xs" bordered >
+    <q-header class="bg-white q-pa-xs" bordered>
       <q-toolbar>
         <q-btn
           flat
@@ -10,27 +10,47 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
- <q-input outlined  label="Search loan" dense>
-   <template v-slot:prepend>
-          <q-icon name="search" />
-        </template>
- </q-input>
+        <q-input outlined label="Search loan" dense>
+          <template v-slot:prepend>
+            <q-icon name="search" />
+          </template>
+        </q-input>
 
+        <q-toolbar-title class=""> </q-toolbar-title>
 
-
-        <q-toolbar-title class=""> Quasar App </q-toolbar-title>
-
-        <div class="row " style="border-right:1px solid grey;"> 
-   <div class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md" style="border-radius:30%;">
-   <img class="q-pt-xs q-pl-xs q-pr-xs" src="../assets/email_white_24dp.svg" alt="">
- </div>
- <div class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md" style="border-radius:30%;">
-   <img class="q-pt-xs q-pl-xs q-pr-xs" src="../assets/notifications_white_24dp.svg" alt="">
- </div>
- </div>
- <div class=" q-pa-xs q-ml-xs" style="border-radius:50%;cursor:pointer;">
-   <img height="44"  src="https://cdn.quasar.dev/team/razvan_stoenescu.jpeg" style="border-radius:50%;" alt="">
- </div>
+        <div class="row" style="border-right: 1px solid grey">
+          <div
+            class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md"
+            style="border-radius: 30%"
+          >
+            <img
+              class="q-pt-xs q-pl-xs q-pr-xs"
+              src="../assets/email_white_24dp.svg"
+              alt=""
+            />
+          </div>
+          <div
+            class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md"
+            style="border-radius: 30%"
+          >
+            <img
+              class="q-pt-xs q-pl-xs q-pr-xs"
+              src="../assets/notifications_white_24dp.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          class="q-pa-xs q-ml-xs"
+          style="border-radius: 50%; cursor: pointer"
+        >
+          <img
+            height="44"
+            src="https://cdn.quasar.dev/team/razvan_stoenescu.jpeg"
+            style="border-radius: 50%"
+            alt=""
+          />
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -63,8 +83,8 @@
       </div>
     </q-drawer>
 
-    <q-page-container>
-      <router-view />
+    <q-page-container >
+      <router-view class="main-section"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -79,7 +99,7 @@ export default {
     return {
       leftDrawerOpen: false,
       navigationListItems: [
-         {
+        {
           icon: "design_services_white_24dp.svg",
           itemLabel: "UI Challenge",
         },
@@ -103,7 +123,6 @@ export default {
           icon: "Account.svg",
           itemLabel: "Settings",
         },
-         
       ],
     };
   },
@@ -111,11 +130,11 @@ export default {
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
     },
-    navigateToUiChallenge(itemLabel){
-if(itemLabel=='UI Challenge'){
-  this.$router.push({name:"UI"})
-}
-    }
+    navigateToUiChallenge(itemLabel) {
+      if (itemLabel == "UI Challenge") {
+        this.$router.push({ name: "UI" });
+      }
+    },
   },
 };
 </script>
@@ -123,9 +142,10 @@ if(itemLabel=='UI Challenge'){
 .navigation__panel {
   max-width: 340px;
   background-color: #0c365a;
-  height: 100vh;
-  width: 20vw;
+  height: 100%;
+  width: 300px;
   padding: 12px 28px;
+  overflow-x: hidden;
 }
 
 .brand {
@@ -160,5 +180,11 @@ if(itemLabel=='UI Challenge'){
     color: #fff;
     margin-left: 14px;
   }
+}
+.main-section{
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 80px;
 }
 </style>

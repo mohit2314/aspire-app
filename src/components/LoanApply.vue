@@ -1,10 +1,17 @@
 <template>
   <div class="apply__panel">
     <div v-if="!applyLoan && !checkout" class="apply__loan-card">
-      <div class="text-h5 q-pb-lg">Take your first loan with Aspire!</div>
+      <div class="text-h5 q-pb-lg text-center text-grey-9">Take your first loan with Aspire!</div>
       <div class="q-pb-lg text-center">
         Fast,easy and convenient.Check it out...
       </div>
+      <div class="offer-card q-mb-lg">
+       <q-chip color="teal" class="q-mb-md" text-color="white" outline icon="sell">Special offer</q-chip>
+
+       <div class="text-center offer-detail ">
+         Get upto S$ 2500 vouchers for shopping at store near you
+       </div>
+       </div>
       <div class="apply__btn">
         <q-btn
           color="secondary"
@@ -14,7 +21,7 @@
         />
       </div>
     </div>
-    <div v-if="applyLoan && !checkout" class="loan__form">
+    <div v-if="applyLoan && !checkout" class="loan__form" style="width:100%">
       <div class="text-h6 q-mb-md text-grey-8">Enter your Loan details</div>
       <q-input
         class="q-mb-lg"
@@ -130,13 +137,26 @@ export default {
   box-shadow: 0px 2px 12px #00000014;
   margin-top: 16px;
   display: flex;
+ 
   padding: 28px;
-  height: 352px;
-  width: 296px;
+  max-height: 362px;
+  max-width: 422px;
 
   .apply__btn {
     display: flex;
     justify-content: center;
   }
+}
+.offer-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.offer-detail{
+  background-color: #DDFFEC;
+color:#01D167;
+border-radius: 6px;
+padding: 8px;
 }
 </style>

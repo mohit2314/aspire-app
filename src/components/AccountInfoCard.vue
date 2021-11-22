@@ -73,6 +73,7 @@ export default {
   box-shadow: 0px 2px 12px #00000014;
   margin-top: 16px;
   display: flex;
+  align-items: center;
   // flex-wrap: wrap;
 
   padding: 16px;
@@ -90,6 +91,8 @@ export default {
 }
 .personal__details {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50%;
 }
 
