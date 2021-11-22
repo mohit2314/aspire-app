@@ -3,7 +3,7 @@ export interface ExampleStateInterface {
   loanAmount:Number;
   loanTerms:Number;
   loanPaid:Number;
-  
+  repaymentList:[];
 }
 
 function state(): ExampleStateInterface {
@@ -11,7 +11,9 @@ function state(): ExampleStateInterface {
     prop: false,
     loanAmount:1000,
     loanTerms:1,
-    loanPaid:0
+    loanPaid:0,
+    repaymentList:[]
+        
   }
 };
 

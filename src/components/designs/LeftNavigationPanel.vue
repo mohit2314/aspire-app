@@ -69,7 +69,7 @@ export default {
 
 <style lang="scss">
 .navigation__panel {
-  max-width: 340px;
+  min-width: 300px;
   background-color: #0c365a;
   height: 100vh;
   width: 20vw;

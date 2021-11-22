@@ -6,7 +6,7 @@
 
 </loan-apply>
 
-<loan-panel :loanGranted="loanGranted"></loan-panel>
+<loan-panel :loanGranted="loanGranted" :repaymentList="repaymentList"></loan-panel>
 </div>
 </q-layout>
 </template>
@@ -28,6 +28,16 @@ data(){
 return{
     loanGranted:false
 }
+},
+computed:{
+    repaymentList: {
+      get: function () {
+        return this.$store.state.loanModule.repaymentList;
+      },
+      set: function (newValue) {
+        this.$store.dispatch("loanModule/setRepaymentList", newValue);
+      },
+    },
 }
 }
 </script>

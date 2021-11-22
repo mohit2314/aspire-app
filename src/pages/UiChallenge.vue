@@ -2,7 +2,7 @@
 <q-layout>
   <div class="page__container">
     <left-navigation-panel class="large-screen-only"></left-navigation-panel>
-    <div class="main__section">
+    <div class="main__section small-screen-padding">
       <div class="info-section__wrapper">
         <info-section></info-section>
       </div>
@@ -73,7 +73,7 @@ export default {
 .main__section {
   width: 100%;
   max-width: 1302px;
-  padding: 48px;
+  padding: 48px 104px;
 }
 .footer{
     box-shadow: 0px -3px 6px #00000014;

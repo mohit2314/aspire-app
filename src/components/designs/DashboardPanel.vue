@@ -1,13 +1,14 @@
 <template>
-  <div class="dashboard__panel">
+  <div class="dashboard__panel small-screen-padding">
     <div class="cards__tab--row">
       <span class="card__tab --active"> My debit cards </span>
       <span class="card__tab"> All company cards </span>
     </div>
-    <div class="dashboard__card-body row">
+    <div class="dashboard__card-body row small-screen-padding">
       <div class="left-col col-xs-10 col-sm-8 col-md-6">
         <!-- Carousel Section -->
         <div class="carousel__section">
+       
           <div class="view__card-number">
             <img
               src="../../assets/remove_red_eye-24px.svg"
@@ -16,6 +17,7 @@
             />
             Show card number
           </div>
+          
           <credit-card></credit-card>
         </div>
         <!-- Card features options -->
@@ -31,7 +33,7 @@
         </div>
       </div>
       <div class="right-col col-xs-12 col-sm-8 col-md-6">
-        <div style="max-width: 366px">
+        <div style="max-width: 366px; margin-left:40px;">
           <div class="accordian-header">
             <div>
               <img
@@ -190,8 +192,9 @@ export default {
   box-shadow: 0px 2px 12px #00000014;
   margin-top: 16px;
   display: flex;
-  padding: 16px;
+  padding: 36px;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .left-col {
@@ -207,13 +210,18 @@ export default {
   font-size: 12px;
   font-weight: 600;
 }
-.features__section {
+
+.carousel__section{
+  width: 414px;
+
+}
+.features__section  {
   padding: 16px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   width: 414px;
-  height: 116px;
+  max-height: 116px;
   background-color: #edf3ff;
   border-radius: 10px;
   margin-top: 24px;
@@ -233,7 +241,7 @@ export default {
 }
 
 .right-col {
-  width: 45%;
+  // width: 45%;
 }
 
 .accordian-icon {
@@ -271,6 +279,7 @@ export default {
   outline: 1px solid #f0f0f0;
 }
 .transaction__row {
+  width: 318px;
   padding-bottom: 16px;
   border-bottom: 1px solid #f0f0f0;
   display: flex;

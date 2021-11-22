@@ -20,8 +20,8 @@
         </div>
         <div class="q-pa-lg">OR</div>
         <div class="login-form">
-          <q-input class="q-mb-lg" outlined v-model="text" label="Email" type="email"/>
-          <q-input class="q-mb-lg" outlined v-model="text" label="Password" type="password"  />
+          <q-input class="q-mb-lg" outlined v-model.trim="email" label="Email" type="email"/>
+          <q-input class="q-mb-lg" outlined v-model.trim="password" label="Password" type="password"  />
           <div class="login-btn" @click="$router.push({name:'Dashboard'})">
               <q-btn color="secondary" label="Log In"  style="width:172px;border-radius:8px;" />
               </div>
@@ -32,7 +32,15 @@
 </template>
 
 <script>
-export default {};
+export default {
+
+  data(){
+    return{
+      email:'',
+      password:''
+    }
+  }
+};
 </script>
 
 <style lang="scss">

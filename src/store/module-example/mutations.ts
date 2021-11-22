@@ -11,6 +11,9 @@ const mutation: MutationTree<ExampleStateInterface> = {
   setLoanPaid: (state, paid) => {
     state.loanPaid = paid;
   },
+  setRepaymentList: (state, list) => {
+    state.repaymentList = list;
+  },
 };
 
 export default mutation;

@@ -1,10 +1,10 @@
 <template>
   <div class="credit__card-body">
-    <div class="logo">
+    <div class="logo q-mb-md">
       <img src="../../assets/Logo_light.svg" alt="" />
     </div>
     <div class="card__details">
-      <div class="name">Mark Henry</div>
+      <div class="name q-mb-md">Mark Henry</div>
       <div class="card__number">
         <div v-for="n in 4" :key="n" class="white-dot"></div>
         &nbsp;&nbsp;&nbsp;
@@ -36,12 +36,14 @@ export default {};
 
 <style lang="scss">
 .credit__card-body {
-  height: 248.85px;
-  width: 414px;
+  width: 100%;
+  max-height: 248.85px;
+  max-width: 414px;
+  min-width:358px;
   background-color: #01d167;
   color: #fff;
   border-radius: 10px;
-  padding: 18px;
+  padding: 20px 18px;
 
   .logo {
     display: flex;

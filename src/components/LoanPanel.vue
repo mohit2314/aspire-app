@@ -5,19 +5,24 @@
 </div>
 <div class="text-h6 text-grey-8">
     No Transactions
+   
 </div>
 </div>
-
 <div v-show="loanGranted" class="loan__repayments">
-<div v-for="(term,i) in +loanTerms" :key="i" class="repayment__card q-mb-md">
+<div v-for="(term,i) in repaymentList" :key="i" class="repayment__card q-mb-md">
 <div class="col">
     <div>
-<q-badge color="green-3">
+<q-badge v-show="term.paid" color="green-3">
      Repaid
     </q-badge>
 </div>
 <div>
-    Amount:-
+<q-badge v-show="!term.paid" color="red-3">
+     Unpaid
+    </q-badge>
+</div>
+<div>
+    Amount:- {{term.amount}}
 </div>
 <div class="text-grey-8">
     Due date:- 20 May,2021
@@ -25,11 +30,15 @@
 </div>
 
 <div class="col-3">
-<img class="bg-green-3" style="border-radius:50%" src="../assets/done_white_48dp.svg" alt="">
-   <q-btn outline rounded color="primary" label="Repay" />
+   <q-btn v-if="repayList[i]==undefined" @click="repay(i)" outline rounded color="primary" label="Repay" />
+   {{repaymentList[i].paid}}
+<img v-show="repayList[i] " class="bg-green-3" style="border-radius:50%" src="../assets/done_white_48dp.svg" alt="">
+
 </div>
 
 </div>
+{{repaymentList}}
+<!-- {{constructRepayList}} -->
 </div>
  </div>
 </template>
@@ -42,16 +51,28 @@ props:{
 loanGranted:{
     type:Boolean,
     default:false
+},
+repaymentList:{
+  type:Array
 }
 
 },
 data(){
     return {
-     
+     repayList:[],
+     updatedList:[]
     }
 },
+Updated(){
+  this.repaymentList;
 
+},
+beforeMount(){
+  this.updatedList=this.repaymentList;
+  console.log("Updated List",this.updatedList)
+},
 computed: {
+   
     loanAmount: {
       get: function () {
         return this.$store.state.loanModule.loanAmount;
@@ -65,7 +86,33 @@ computed: {
         return this.$store.state.loanModule.loanTerms;
       }
     },
+    //   repaymentList: {
+    //   get: function () {
+    //     return this.$store.state.loanModule.repaymentList;
+    //   },
+    //   set: function (newValue) {
+    //     this.$store.dispatch("loanModule/setRepaymentList", newValue);
+    //   },
+    // },
+ 
   },
+  methods:{
+      repay(i){
+          this.loanAmount = this.loanAmount - this.repaymentList[i].amount;
+        //   term.paid=true;
+        console.log(this.repaymentList[i].paid)
+       this.repaymentList[i].paid=true;
+        console.log(this.repaymentList[i].paid)
+conosole.log("%%% REpay")
+       let repayObj={
+         index:i,
+         paid:true
+       }
+this.repayList.push(repayObj);
+      },
+    
+   
+  }
 }
 </script>
 

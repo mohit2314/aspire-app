@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header class="bg-white q-pa-xs" bordered >
       <q-toolbar>
         <q-btn
           flat
@@ -10,10 +10,27 @@
           aria-label="Menu"
           @click="toggleLeftDrawer"
         />
+ <q-input outlined  label="Search loan" dense>
+   <template v-slot:prepend>
+          <q-icon name="search" />
+        </template>
+ </q-input>
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+
+        <q-toolbar-title class=""> Quasar App </q-toolbar-title>
+
+        <div class="row " style="border-right:1px solid grey;"> 
+   <div class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md" style="border-radius:30%;">
+   <img class="q-pt-xs q-pl-xs q-pr-xs" src="../assets/email_white_24dp.svg" alt="">
+ </div>
+ <div class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md" style="border-radius:30%;">
+   <img class="q-pt-xs q-pl-xs q-pr-xs" src="../assets/notifications_white_24dp.svg" alt="">
+ </div>
+ </div>
+ <div class=" q-pa-xs q-ml-xs" style="border-radius:50%;cursor:pointer;">
+   <img height="44"  src="https://cdn.quasar.dev/team/razvan_stoenescu.jpeg" style="border-radius:50%;" alt="">
+ </div>
       </q-toolbar>
     </q-header>
 
