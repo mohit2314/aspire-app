@@ -32,7 +32,7 @@
             <img src="../assets/Credit.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanAmount || "- - -" }}</span>
+            <span class="text-h6"> S$ {{ loanPaid || "- - -" }}</span>
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
             <img src="../assets/Payments.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanAmount || "- - -" }}</span>
+            <span class="text-h6"> S$ {{ loanAmount-loanPaid || "- - -" }}</span>
           </div>
         </div>
       </div>
@@ -62,6 +62,7 @@ export default {
         this.$store.dispatch("loanModule/setLoanAmount", newValue);
       },
     },
+  
   },
 };
 </script>

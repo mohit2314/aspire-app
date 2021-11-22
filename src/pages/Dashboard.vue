@@ -2,11 +2,11 @@
 <q-layout class="q-pa-lg">
   <account-info-card></account-info-card>
   <div class="row">
-<loan-apply>
+<loan-apply @appliedLoan="loanGranted=true">
 
 </loan-apply>
 
-<loan-panel></loan-panel>
+<loan-panel :loanGranted="loanGranted"></loan-panel>
 </div>
 </q-layout>
 </template>
@@ -23,6 +23,11 @@ components:{
     LoanPanel,
     LoanApply,
     OffersPanel
+},
+data(){
+return{
+    loanGranted:false
+}
 }
 }
 </script>

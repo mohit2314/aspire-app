@@ -15,12 +15,12 @@
 <div class="text-h6 q-mb-md text-grey-8">
     Enter your Loan details
 </div>
- <q-input class="q-mb-lg" outlined v-model="text" label="Amount required" type="number"/>
-          <q-input class="q-mb-lg" outlined v-model="text" label="Loan terms" type="number"  />
+ <q-input class="q-mb-lg" outlined v-model="loanAmount" label="Amount required" type="number"/>
+          <q-input class="q-mb-lg" outlined v-model="loanTerms" label="Loan terms" type="number"  />
           <q-input class="q-mb-lg" outlined disable v-model="loanFrequency" label="Loan Frequency" type="text" readonly />
 
           <div class="login-btn" >
-              <q-btn color="secondary" label="Check out" @click="checkout=true" style="width:172px;border-radius:8px;" />
+              <q-btn color="secondary" label="Check out" @click="appliedLoan" style="width:172px;border-radius:8px;" />
               </div>
 </div>
 <div v-if="checkout" class="success__form text-center">
@@ -37,13 +37,38 @@
 
 <script>
 export default {
+    emits:['appliedLoan'],
 data(){
     return {
         applyLoan:false,
         checkout:false,
         loanFrequency:'Monthly'
     }
-}
+},
+computed: {
+    loanAmount: {
+      get: function () {
+        return this.$store.state.loanModule.loanAmount;
+      },
+      set: function (newValue) {
+        this.$store.dispatch("loanModule/setLoanAmount", newValue);
+      },
+    },
+       loanTerms: {
+      get: function () {
+        return this.$store.state.loanModule.loanTerms;
+      },
+      set: function (newValue) {
+        this.$store.dispatch("loanModule/setLoanTerms", newValue);
+      },
+    },
+  },
+  methods:{
+      appliedLoan(){
+      this.checkout=true;
+      this.$emit('appliedLoan')
+      }
+  }
 }
 </script>
 

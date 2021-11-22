@@ -1,6 +1,6 @@
 <template>
  <div class="loan__panel">
-<div class="no__transaction">
+<div v-if="!loanGranted" class="no__transaction">
   <div>  <img height="300" width="400" src="https://image.freepik.com/free-vector/plain-credit-card-concept-illustration_114360-199.jpg" alt="">
 </div>
 <div class="text-h6 text-grey-8">
@@ -12,6 +12,15 @@
 
 <script>
 export default {
+
+props:{
+
+loanGranted:{
+    type:Boolean,
+    default:false
+}
+
+},
 data(){
     return {
       
