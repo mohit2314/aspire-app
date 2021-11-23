@@ -22,8 +22,12 @@
         <div class="login-form">
           <q-input class="q-mb-lg" outlined v-model.trim="email" label="Email" type="email"/>
           <q-input class="q-mb-lg" outlined v-model.trim="password" label="Password" type="password"  />
-          <div class="login-btn" @click="$router.push({name:'Dashboard'})">
+         <p class="text-center text-red-5" v-if="!formIsValid">Please enter a valid email and password.Password should be 6 character long</p>
+          <div class="login-btn" @click="submitForm">
               <q-btn color="secondary" label="Log In"  style="width:172px;border-radius:8px;" />
+              </div>
+              <div class="signup-link q-mt-lg text-center">
+<span @click="switchAuthMode" class="q-mr-xs"> Register here </span><a href="javascript:void(0)">Sign up</a>
               </div>
         </div>
       </div>
@@ -37,9 +41,27 @@ export default {
   data(){
     return{
       email:'',
-      password:''
+      password:'',
+      formIsValid:true,
+      mode:'login'
+    }
+  },
+  methods:{
+    submitForm(){
+      this.formIsValid=true;
+if(this.email === '' || !this.email.includes('@') || this.password.length < 6){
+  this.formIsValid=false;
+  return;
+}
+
+this.$router.push({name:'Dashboard'})
+    },
+
+    switchAuthMode(){
+
     }
   }
+  
 };
 </script>
 

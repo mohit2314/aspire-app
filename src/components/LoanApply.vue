@@ -139,28 +139,14 @@ export default {
       },
     },
   },
-  beforeUpdate() {
-    this.constructRepaymentObj();
-  },
+ 
   methods: {
     appliedLoan() {
       this.checkout = true;
       this.$emit("appliedLoan");
     },
 
-    constructRepaymentObj() {
-      let repaymentObj = {
-        amount: this.loanAmount / +this.loanTerms,
-        paid: false,
-      };
-      let list = [];
-
-      for (let i = 0; i < +this.loanTerms; i++) {
-        list.push(repaymentObj);
-      }
-      this.repaymentList = list;
-      
-    },
+ 
   },
 };
 </script>

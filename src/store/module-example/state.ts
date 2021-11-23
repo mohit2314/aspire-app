@@ -9,7 +9,7 @@ export interface ExampleStateInterface {
 function state(): ExampleStateInterface {
   return {
     prop: false,
-    loanAmount:1000,
+    loanAmount:0,
     loanTerms:1,
     loanPaid:0,
     repaymentList:[]

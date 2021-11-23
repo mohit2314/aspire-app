@@ -21,7 +21,9 @@
             <img src="../assets/Card.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanAmount.toFixed(2) || "- - -" }}</span>
+            <span v-if="loanAmount" class="text-h6"> S$ {{ loanAmount }}</span>
+            <span v-else class="text-h6"> S$ - - - </span>
+
           </div>
         </div>
       </div>
@@ -53,6 +55,13 @@
 
 <script>
 export default {
+
+  data(){
+    return{
+      loanAmt:0
+    }
+  },
+  
   computed: {
     loanAmount: {
       get: function () {
