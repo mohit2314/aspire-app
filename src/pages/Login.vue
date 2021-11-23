@@ -24,10 +24,15 @@
           <q-input class="q-mb-lg" outlined v-model.trim="password" label="Password" type="password"  />
          <p class="text-center text-red-5" v-if="!formIsValid">Please enter a valid email and password.Password should be 6 character long</p>
           <div class="login-btn" @click="submitForm">
-              <q-btn color="secondary" label="Log In"  style="width:172px;border-radius:8px;" />
+              <q-btn v-if="mode=='login'" color="secondary" label="Log In"  style="width:172px;border-radius:8px;" />
+              <q-btn v-else color="secondary" label="Sign up"  style="width:172px;border-radius:8px;" />
+
               </div>
-              <div class="signup-link q-mt-lg text-center">
-<span @click="switchAuthMode" class="q-mr-xs"> Register here </span><a href="javascript:void(0)">Sign up</a>
+              <div v-if="mode=='login'" class="signup-link q-mt-lg text-center">
+<span  class="q-mr-xs"> Register here </span><p @click="switchAuthMode" class="q-ml-xs text-bold" style="color:#0c365a;cursor:pointer;">Sign up</p>
+              </div>
+               <div v-else class="signup-link q-mt-lg text-center">
+<span  class="q-mr-xs"> Click here to </span><p @click="switchAuthMode" class="q-ml-xs text-bold" style="color:#0c365a;cursor:pointer;">Login</p>
               </div>
         </div>
       </div>
@@ -54,11 +59,25 @@ if(this.email === '' || !this.email.includes('@') || this.password.length < 6){
   return;
 }
 
-this.$router.push({name:'Dashboard'})
+if(this.mode ==='login') {
+
+}
+else {
+  this.$store.dispatch('signup',{
+    email:this.email,
+    password:this.password
+  });
+}
+// this.$router.push({name:'Dashboard'})
     },
 
     switchAuthMode(){
-
+if(this.mode === 'login') {
+  this.mode='signup';
+}
+else{
+  this.mode='login';
+}
     }
   }
   
