@@ -25,7 +25,7 @@
     Amount:- {{term.amount.toFixed(2)}}
 </div>
 <div class="text-grey-8">
-    Due date:- 20 May,2021
+    Due date:- {{term.date}}
 </div>
 </div>
 
@@ -123,18 +123,28 @@ this.repayList.push(repayObj);
       this.updatedList=[];
 
       // let list = [];
+      
 
       for (let i = 0; i < +terms; i++) {
           let repaymentObj = {
         amount: loanAmt /+terms,
         paid: false,
-        date: new Date()
+        date: this.formatDate( new Date(Date.UTC(2021, i+1, 20, 3, 0, 0)))
       };
         this.updatedList.push(repaymentObj);
       }
       // this.repaymentList = list;
       return this.updatedList;
     },
+
+    formatDate(dateObj){
+//Internationalizing dates as per country locale 
+      const locale=navigator.language;
+      var options = {  year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = new Intl.DateTimeFormat(locale,options).format(dateObj) 
+
+      return formattedDate;
+    }
     }
    
   }
