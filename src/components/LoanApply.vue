@@ -56,15 +56,49 @@
         />
       </div>
     </div>
-    <div v-if="checkout" class="success__form text-center">
+    <div v-if="checkout" class="success__form text-center" >
+      <div>
       <img
         class="bg-green-3"
         style="border-radius: 50%"
         src="../assets/done_white_48dp.svg"
         alt=""
       />
-      <div class="text-h6 text-center">Great !!!</div>
-      <div class="text-h6 text-center">Loan Success</div>
+      </div>
+      <div class="text-h6 text-center text-grey-7">Great !!!</div>
+      <div class="text-h6 text-center text-grey-7">Loan Success</div>
+       <q-separator class="q-mt-lg" style="width:100%"/>
+      <div class="text-grey-8 text-bold q-pa-xs">
+        Loan Summary
+      </div>
+      <div class="loan__summary q-mt-md text-grey-7">
+        <div class="label">
+          <div>
+Purpose Loan
+</div>
+<div>
+  Monthly
+</div>
+<div>
+  Installment
+</div>
+<div>
+  Due date
+</div>
+        </div>
+        <div class="response">
+<div> Car Loan</div>
+<div>
+  12 Month
+</div>
+<div>
+  S$ 10/month
+</div>
+<div>
+  May 10,2021
+</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -140,8 +174,8 @@ export default {
  
   padding: 28px;
   max-height: 362px;
-  max-width: 422px;
-
+  width: 400px;
+margin-right: 20px;
   .apply__btn {
     display: flex;
     justify-content: center;
@@ -158,5 +192,29 @@ export default {
 color:#01D167;
 border-radius: 6px;
 padding: 8px;
+}
+
+.success__form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loan__summary{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  text-align: left;
+.label > div{
+
+    line-height: 2;
+ 
+}
+.response > div{
+
+    line-height: 2;
+ 
+}
 }
 </style>
