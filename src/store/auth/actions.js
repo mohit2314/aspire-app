@@ -66,5 +66,14 @@ AIzaSyAQ7M7_6EenkF7JkLwNAaO3N5UM0OW6N0w`, {
             userId:responseData.localId,
             tokenExpiration: responseData.expiresIn
         })
+    },
+
+    logout(context) {
+        context.commit('setUser',{
+            token:null,
+            userId:null,
+            tokenExpiration:null
+        })
+        
     }
 };

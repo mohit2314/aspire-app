@@ -82,6 +82,7 @@ const actionPayload ={
 try{
 if(this.mode ==='login') {
 await this.$store.dispatch('login',actionPayload);
+this.$router.push({name:'Dashboard'})
 
 }
 else {
@@ -95,7 +96,6 @@ this.error=err.message || 'Failed to authenticate, try later.'
 
 
 this.isLoading=false;
-// this.$router.push({name:'Dashboard'})
     },
 
     switchAuthMode(){

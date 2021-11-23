@@ -25,17 +25,20 @@
           >
             <img
               class="q-pt-xs q-pl-xs q-pr-xs"
-              src="../assets/email_white_24dp.svg"
+              src="../assets/notifications_white_24dp.svg"
               alt=""
             />
           </div>
           <div
+            v-if="isLoggedIn"
             class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md"
-            style="border-radius: 30%"
+            style="border-radius: 30%; cursor: pointer"
+            title="Logout"
+            @click="logout"
           >
             <img
               class="q-pt-xs q-pl-xs q-pr-xs"
-              src="../assets/notifications_white_24dp.svg"
+              src="../assets/power_settings_new_white_24dp.svg"
               alt=""
             />
           </div>
@@ -83,8 +86,8 @@
       </div>
     </q-drawer>
 
-    <q-page-container >
-      <router-view class="main-section"/>
+    <q-page-container>
+      <router-view class="main-section" />
     </q-page-container>
   </q-layout>
 </template>
@@ -126,6 +129,11 @@ export default {
       ],
     };
   },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
   methods: {
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
@@ -135,6 +143,9 @@ export default {
         this.$router.push({ name: "UI" });
       }
     },
+    logout() {
+      this.$store.dispatch('logout');
+    }
   },
 };
 </script>
@@ -181,7 +192,7 @@ export default {
     margin-left: 14px;
   }
 }
-.main-section{
+.main-section {
   // display: flex;
   justify-content: center;
   align-items: center;
