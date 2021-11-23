@@ -4,7 +4,7 @@
       <div class="account__avtar">
         <img src="../assets/Account.svg" alt="" />
       </div>
-      <div class="q-pa-lg">
+      <div class="q-pa-md">
         <div class="name text-h6 text-indigo-10 q-mb-md">Mohit Patel</div>
         <div class="acc-no text-bold text-grey-8">
           Account no: xxxx xxxx 1234
@@ -21,7 +21,7 @@
             <img src="../assets/Card.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanAmount || "- - -" }}</span>
+            <span class="text-h6"> S$ {{ loanAmount.toFixed(2) || "- - -" }}</span>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  min-width: 30%;
 }
 
 .account__detail-cards {

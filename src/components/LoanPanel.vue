@@ -9,7 +9,7 @@
 </div>
 </div>
 <div v-show="loanGranted" class="loan__repayments">
-<div v-for="(term,i) in repaymentList" :key="i" class="repayment__card q-mb-md">
+<div v-for="(term,i) in updatedList" :key="i" class="repayment__card q-mb-md">
 <div class="col">
     <div>
 <q-badge v-show="term.paid" color="green-3">
@@ -22,7 +22,7 @@
     </q-badge>
 </div>
 <div>
-    Amount:- {{term.amount}}
+    Amount:- {{term.amount.toFixed(2)}}
 </div>
 <div class="text-grey-8">
     Due date:- 20 May,2021
@@ -30,14 +30,14 @@
 </div>
 
 <div class="col-3">
-   <q-btn v-if="repayList[i]==undefined" @click="repay(i)" outline rounded color="primary" label="Repay" />
-   {{repaymentList[i].paid}}
-<img v-show="repayList[i] " class="bg-green-3" style="border-radius:50%" src="../assets/done_white_48dp.svg" alt="">
+   <q-btn v-if="!updatedList[i].paid" @click="repay(i)" outline rounded color="primary" label="Repay" />
+   {{updatedList[i].paid}}
+<img v-show="updatedList[i].paid " class="bg-green-3" style="border-radius:50%" src="../assets/done_white_48dp.svg" alt="">
 
 </div>
 
 </div>
-{{repaymentList}}
+{{updatedList}}
 <!-- {{constructRepayList}} -->
 </div>
  </div>
@@ -67,9 +67,17 @@ Updated(){
   this.repaymentList;
 
 },
+
 beforeMount(){
-  this.updatedList=this.repaymentList;
-  console.log("Updated List",this.updatedList)
+  this.updatedList=this.constructRepaymentList(this.loanAmount, this.loanTerms);
+},
+watch:{
+loanTerms:function(){
+  this.updatedList=this.constructRepaymentList(this.loanAmount, this.loanTerms)
+    console.log("Updated List",this.updatedList)
+
+}
+
 },
 computed: {
    
@@ -98,22 +106,39 @@ computed: {
   },
   methods:{
       repay(i){
-          this.loanAmount = this.loanAmount - this.repaymentList[i].amount;
+          this.loanAmount = this.loanAmount - this.updatedList[i].amount;
         //   term.paid=true;
-        console.log(this.repaymentList[i].paid)
-       this.repaymentList[i].paid=true;
-        console.log(this.repaymentList[i].paid)
-conosole.log("%%% REpay")
+        console.log(this.updatedList[i].paid)
+       this.updatedList[i].paid=true;
+        console.log(this.updatedList[i].paid)
+
        let repayObj={
          index:i,
          paid:true
        }
 this.repayList.push(repayObj);
+// this.repaymentList.splice(i, 1);
       },
-    
+    constructRepaymentList(loanAmt,terms){
+      this.updatedList=[];
+
+      // let list = [];
+
+      for (let i = 0; i < +terms; i++) {
+          let repaymentObj = {
+        amount: loanAmt /+terms,
+        paid: false,
+        date: new Date()
+      };
+        this.updatedList.push(repaymentObj);
+      }
+      // this.repaymentList = list;
+      return this.updatedList;
+    },
+    }
    
   }
-}
+
 </script>
 
 <style lang="scss">
