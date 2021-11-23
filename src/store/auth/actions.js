@@ -18,9 +18,17 @@ AIzaSyAQ7M7_6EenkF7JkLwNAaO3N5UM0OW6N0w`, {
         const responseData = await response.json();
 
         if (!response.ok) {
-            console.log(responseData);
-            const error = new Error(responseData.message || 'Failed to authenticate');
+            console.log("responseData",responseData);
+            if(responseData.error.message === 'EMAIL_EXISTS'){
+            const error = new Error("User already exists !");
             throw error;
+            }
+            else{
+                const error = new Error(responseData.error.message || 'Failed to authenticate');
+                throw error;
+            }
+
+           
         }
         console.log(responseData);
 

@@ -23,6 +23,8 @@
           <q-input class="q-mb-lg" outlined v-model.trim="email" label="Email" type="email"/>
           <q-input class="q-mb-lg" outlined v-model.trim="password" label="Password" type="password"  />
          <p class="text-center text-red-5" v-if="!formIsValid">Please enter a valid email and password.Password should be 6 character long</p>
+         <p class="text-center text-red-5" v-if="error">{{error}}</p>
+         
          <div class="text-center loader-wrap">
           <q-spinner-oval
           v-show="isLoading"
@@ -84,6 +86,7 @@ await this.$store.dispatch('signup',{
 }
 }
 catch(err){
+  console.log("err",err.message);
 this.error=err.message || 'Failed to authenticate, try later.'
 }
 
