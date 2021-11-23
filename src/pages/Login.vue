@@ -23,9 +23,18 @@
           <q-input class="q-mb-lg" outlined v-model.trim="email" label="Email" type="email"/>
           <q-input class="q-mb-lg" outlined v-model.trim="password" label="Password" type="password"  />
          <p class="text-center text-red-5" v-if="!formIsValid">Please enter a valid email and password.Password should be 6 character long</p>
-          <div class="login-btn" @click="submitForm">
-              <q-btn v-if="mode=='login'" color="secondary" label="Log In"  style="width:172px;border-radius:8px;" />
-              <q-btn v-else color="secondary" label="Sign up"  style="width:172px;border-radius:8px;" />
+         <div class="text-center loader-wrap">
+          <q-spinner-oval
+          v-show="isLoading"
+          color="primary"
+          size="2em"
+         
+  class="loader"
+          />
+         </div>
+          <div class="login-btn">
+              <q-btn v-if="mode=='login'"  @click="submitForm" color="secondary" label="Log In"  style="width:172px;border-radius:8px;" />
+              <q-btn v-else color="secondary" @click="submitForm" label="Sign up"  style="width:172px;border-radius:8px;" />
 
               </div>
               <div v-if="mode=='login'" class="signup-link q-mt-lg text-center">
@@ -48,26 +57,38 @@ export default {
       email:'',
       password:'',
       formIsValid:true,
-      mode:'login'
+      mode:'login',
+      isLoading:false,
+      error:null
     }
   },
   methods:{
-    submitForm(){
+   async submitForm(){
       this.formIsValid=true;
 if(this.email === '' || !this.email.includes('@') || this.password.length < 6){
   this.formIsValid=false;
   return;
 }
 
+this.isLoading=true;
+
+try{
 if(this.mode ==='login') {
 
 }
 else {
-  this.$store.dispatch('signup',{
+await this.$store.dispatch('signup',{
     email:this.email,
     password:this.password
   });
 }
+}
+catch(err){
+this.error=err.message || 'Failed to authenticate, try later.'
+}
+
+
+this.isLoading=false;
 // this.$router.push({name:'Dashboard'})
     },
 
@@ -168,5 +189,12 @@ else{
         display: flex;
         justify-content: center;
     }
+}
+.loader-wrap{
+  position: relative;
+  .loader{
+    position: absolute;
+    top:-106px;
+  }
 }
 </style>
