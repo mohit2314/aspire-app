@@ -30,6 +30,9 @@ return{
 }
 },
 computed:{
+  isLoggedIn() {
+return this.$store.getters.isAuthenticated;
+  },
     repaymentList: {
       get: function () {
         return this.$store.state.loanModule.repaymentList;
