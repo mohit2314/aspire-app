@@ -82,7 +82,7 @@ const actionPayload ={
 try{
 if(this.mode ==='login') {
 await this.$store.dispatch('login',actionPayload);
-this.$router.push({name:'Dashboard'})
+this.$router.replace({name:'Dashboard'})
 
 }
 else {
