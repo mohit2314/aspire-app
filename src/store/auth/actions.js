@@ -49,8 +49,8 @@ async auth(context,payload) {
        
     }
 
-const expiresIn = +responseData.expiresIn * 1000; //convert in milliseconds
-// const expiresIn = 5000; //for testing setting it to 5seconds
+// const expiresIn = +responseData.expiresIn * 1000; //convert in milliseconds
+const expiresIn = 5000; //for testing setting it to 5seconds
 
 const expirationDate = new Date().getTime() + expiresIn;
 
@@ -59,7 +59,7 @@ const expirationDate = new Date().getTime() + expiresIn;
     localStorage.setItem('tokenExpiration',expirationDate);
 
   timer=  setTimeout(function(){
-        context.dispatch('logout');
+        context.dispatch('autoLogout');
     },expiresIn);
 
     context.commit('setUser',{
@@ -82,7 +82,7 @@ if(expiresIn < 0) {
 }
 
 timer= setTimeout(function(){
-context.dispatch('logout');
+context.dispatch('autoLogout');
 },expiresIn);
 
 if(token && userId) {
@@ -106,6 +106,11 @@ clearTimeout(timer);
             userId:null,
          
         })
-        this.$router.replace('/');
+        // this.$router.replace('/');
+    },
+
+    autoLogout(context) {
+        context.dispatch('logout');
+        context.commit('setAutoLogout');
     }
 };
