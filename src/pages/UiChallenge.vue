@@ -84,6 +84,8 @@ export default {
     box-shadow: 0px -3px 6px #00000014;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    padding: 8px 0px;
 }
 .mobile__nav-item{
     display: flex;
