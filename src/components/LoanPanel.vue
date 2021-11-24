@@ -101,6 +101,22 @@ export default {
         return this.$store.state.loanModule.loanTerms;
       },
     },
+    loanPaid: {
+      get: function () {
+        return this.$store.state.loanModule.loanPaid;
+      },
+      set: function(newValue) {
+        return this.$store.dispatch("loanModule/setLoanPaid",newValue);
+      }
+    },
+     loanRemain: {
+      get: function () {
+        return this.$store.state.loanModule.loanRemain;
+      },
+      set: function (newValue) {
+        this.$store.dispatch("loanModule/setLoanRemain", newValue);
+      },
+    },
   },
   methods: {
      /**
@@ -108,7 +124,13 @@ export default {
      * @param i {Number}
      */
     repay(i) {
-      this.loanAmount = (this.loanAmount - this.updatedList[i].amount).toFixed(2);
+      this.loanRemain = (this.loanRemain - this.updatedList[i].amount).toFixed(2);
+      this.loanPaid=(this.loanAmount- this.loanRemain).toFixed(2);
+      //quick fix can be handled in more better way
+      if(+this.loanRemain < 1){
+        this.loanRemain=0;
+        this.loanPaid=this.loanAmount;
+      }
       this.updatedList[i].paid = true;
     },
     constructRepaymentList(loanAmt, terms) {
@@ -121,7 +143,6 @@ export default {
         };
         this.updatedList.push(repaymentObj);
       }
-     
       return this.updatedList;
     },
 

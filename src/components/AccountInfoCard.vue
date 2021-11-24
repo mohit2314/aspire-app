@@ -9,13 +9,29 @@
         <div class="acc-no text-bold text-grey-8">
           Account no: xxxx xxxx 1234
         </div>
-        <div class="date text-grey">Member since : 20 May,2021</div>
+        <div class="date text-grey">Member since:20 May,2021</div>
+        <div class="loan-status">
+          <q-chip square color="primary" text-color="white" icon="event">
+            Status:{{ loanStatus }}
+          </q-chip>
+        </div>
       </div>
     </div>
 
     <div class="account__detail-cards">
       <div class="detail-card">
-        <div class="label text-bold">Loan amount</div>
+        <div class="label text-bold">
+          Loan amount
+          <img
+          v-if="loanAmount !==0 && loanPaid==loanAmount"
+            height="20"
+            class="bg-green-3 q-ml-md"
+            style="border-radius: 50%"
+            src="../assets/done_white_48dp.svg"
+            alt=""
+          />
+        </div>
+
         <div class="card-row">
           <div class="icon q-mt-md">
             <img src="../assets/Card.svg" alt="" />
@@ -23,7 +39,6 @@
           <div class="q-ml-md">
             <span v-if="loanAmount" class="text-h6"> S$ {{ loanAmount }}</span>
             <span v-else class="text-h6"> S$ - - - </span>
-
           </div>
         </div>
       </div>
@@ -45,7 +60,7 @@
             <img src="../assets/Payments.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanAmount-loanPaid || "- - -" }}</span>
+            <span class="text-h6"> S$ {{ loanRemain || "- - -" }}</span>
           </div>
         </div>
       </div>
@@ -55,13 +70,12 @@
 
 <script>
 export default {
-
-  data(){
-    return{
-      loanAmt:0
-    }
+  data() {
+    return {
+      loanAmt: 0,
+    };
   },
-  
+
   computed: {
     loanAmount: {
       get: function () {
@@ -71,7 +85,28 @@ export default {
         this.$store.dispatch("loanModule/setLoanAmount", newValue);
       },
     },
-  
+    loanPaid: {
+      get: function () {
+        return this.$store.state.loanModule.loanPaid;
+      },
+    },
+    loanRemain: {
+      get: function () {
+        return this.$store.state.loanModule.loanRemain;
+      },
+      set: function (newValue) {
+        this.$store.dispatch("loanModule/setLoanRemain", newValue);
+      },
+    },
+    loanStatus() {
+      if (this.loanPaid !== 0 && +this.loanPaid === +this.loanAmount) {
+        return "Repaid";
+      } else if (this.loanPaid == 0 && +this.loanPaid === +this.loanAmount) {
+        return " NA";
+      } else if (this.loanPaid !== 0 && +this.loanPaid !== +this.loanAmount) {
+        return " Pending";
+      }
+    },
   },
 };
 </script>

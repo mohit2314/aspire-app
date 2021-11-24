@@ -49,8 +49,8 @@ async auth(context,payload) {
        
     }
 
-// const expiresIn = +responseData.expiresIn * 1000; //convert in milliseconds
-const expiresIn = 5000; //for testing setting it to 5seconds
+const expiresIn = +responseData.expiresIn * 1000; //convert in milliseconds
+// const expiresIn = 5000; //for testing setting it to 5seconds
 
 const expirationDate = new Date().getTime() + expiresIn;
 

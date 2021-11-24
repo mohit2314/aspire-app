@@ -15,6 +15,9 @@ const actions: ActionTree<ExampleStateInterface, StateInterface> = {
   setRepaymentList: ({ commit }, list) => {
     commit('setRepaymentList', list);
   },
+  setLoanRemain: ({ commit }, remain) => {
+    commit('setLoanRemain', remain);
+  },
 };
 
 export default actions;

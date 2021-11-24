@@ -3,6 +3,7 @@ export interface ExampleStateInterface {
   loanAmount:Number;
   loanTerms:Number;
   loanPaid:Number;
+  loanRemain:Number;
   repaymentList:[];
 }
 
@@ -12,6 +13,7 @@ function state(): ExampleStateInterface {
     loanAmount:0,
     loanTerms:1,
     loanPaid:0,
+    loanRemain:0,
     repaymentList:[]
         
   }
