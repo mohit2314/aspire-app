@@ -20,9 +20,12 @@ export default {};
 
 <style lang="scss">
 .info__section{
+  min-width: 414px;
+  max-width: 906px;
     padding: 12px;
     display: flex;
     justify-content: space-between;
+width: 100%;
 }
 
 .balance__col{

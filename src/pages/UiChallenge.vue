@@ -5,10 +5,10 @@
     <left-navigation-panel class="large-screen-only"></left-navigation-panel>
     <q-page>
     <div class="main__section q-layout-padding flex justify-center small-screen-padding">
-      <div class="info-section__wrapper">
+      <div class="info-section__wrapper  mobile__top-section">
         <info-section></info-section>
       </div>
-      <div class="dashboard__wrapper">
+      <div class="dashboard__wrapper mobile__top-section">
 <dashboard-panel ></dashboard-panel>
       </div>
       <q-footer bordered class="bg-white footer text-primary small-screen-only">
@@ -72,6 +72,12 @@ export default {
 .page__container {
   display: flex;
   font-family: "Open Sans", "Regular";
+}
+.info-section__wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .main__section {

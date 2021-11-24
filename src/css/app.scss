@@ -54,7 +54,19 @@ display: block;
   
 }
 
+.mobile__top-section{
+    @media (max-width:600px){
+background-color: #0c365a;
+width: 100%;
+color: #fff;
+    }
+}
+.mobile__bottom-section {
+    @media(max-width:600px){
+        background-color: #fff !important;
 
+    }
+}
 .credit-card-large-screen{
     @media (max-width:600px){
     width: 414px;

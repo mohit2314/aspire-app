@@ -21,7 +21,7 @@
           <credit-card ></credit-card>
         </div>
         <!-- Card features options -->
-        <div class="features__section">
+        <div class="features__section ">
           <div v-for="feature in featuresList" :key="feature" class="feature">
             <div class="feature__icon">
               <img :src="require(`../../assets/${feature.icon}`)" alt="" />
@@ -32,7 +32,7 @@
           </div>
         </div>
       </div>
-      <div class="right-col col-xs-12 col-sm-8 col-md-6">
+      <div class="right-col col-xs-12 col-sm-8 col-md-6 mobile__bottom-section">
         <div style="max-width: 366px; margin-left:40px;">
           <div class="accordian-header">
             <div>
@@ -188,7 +188,6 @@ export default {
 }
 
 .dashboard__card-body {
-  border: 1px solid #fcfcfc;
   box-shadow: 0px 2px 12px #00000014;
   margin-top: 16px;
   display: flex;
