@@ -1,10 +1,13 @@
 <template>
   <router-view />
 </template>
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script >
 
-export default defineComponent({
-  name: 'App'
-})
+export default {
+  name: 'App',
+
+  created(){
+    this.$store.dispatch('tryLogin');
+  }
+}
 </script>

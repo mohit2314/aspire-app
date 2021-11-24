@@ -45,7 +45,9 @@ async auth(context,payload) {
 
        
     }
-    console.log(responseData);
+
+    localStorage.setItem('token',responseData.idToken);
+    localStorage.setItem('userId',responseData.localId);
 
     context.commit('setUser',{
         token:responseData.idToken,
@@ -53,6 +55,19 @@ async auth(context,payload) {
         tokenExpiration: responseData.expiresIn
     })
 
+},
+
+tryLogin(context) {
+const token = localStorage.getItem('token');
+const userId = localStorage.getItem('userId');
+
+if(token && userId) {
+    context.commit('setUser',{
+        token:token,
+        userId:userId,
+        tokenExpiration:null
+    });
+}
 },
 
     logout(context) {
