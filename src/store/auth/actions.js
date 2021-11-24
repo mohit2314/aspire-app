@@ -1,3 +1,6 @@
+let timer; //as we want only one timer to be active at one time
+
+
 export default {
   async  login(context, payload) {
     return context.dispatch('auth',{
@@ -46,13 +49,23 @@ async auth(context,payload) {
        
     }
 
+const expiresIn = +responseData.expiresIn * 1000; //convert in milliseconds
+// const expiresIn = 5000; //for testing setting it to 5seconds
+
+const expirationDate = new Date().getTime() + expiresIn;
+
     localStorage.setItem('token',responseData.idToken);
     localStorage.setItem('userId',responseData.localId);
+    localStorage.setItem('tokenExpiration',expirationDate);
+
+  timer=  setTimeout(function(){
+        context.dispatch('logout');
+    },expiresIn);
 
     context.commit('setUser',{
         token:responseData.idToken,
         userId:responseData.localId,
-        tokenExpiration: responseData.expiresIn
+       
     })
 
 },
@@ -60,22 +73,39 @@ async auth(context,payload) {
 tryLogin(context) {
 const token = localStorage.getItem('token');
 const userId = localStorage.getItem('userId');
+const tokenExpiration = localStorage.getItem('tokenExpiration');
+
+const expiresIn = +tokenExpiration - new Date().getTime();
+
+if(expiresIn < 0) {
+    return;
+}
+
+timer= setTimeout(function(){
+context.dispatch('logout');
+},expiresIn);
 
 if(token && userId) {
     context.commit('setUser',{
         token:token,
         userId:userId,
-        tokenExpiration:null
+    
     });
 }
 },
 
     logout(context) {
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('tokenExpiration');
+clearTimeout(timer);
+
         context.commit('setUser',{
             token:null,
             userId:null,
-            tokenExpiration:null
+         
         })
-        
+        this.$router.replace('/');
     }
 };
