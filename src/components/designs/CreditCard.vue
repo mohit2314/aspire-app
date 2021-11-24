@@ -36,15 +36,15 @@ export default {};
 
 <style lang="scss">
 .credit__card-body {
-  width: 100%;
-  max-height: 248.85px;
-  max-width: 414px;
-  min-width:358px;
+  // max-height: 248.85px;
+  // max-width: 414px;
+  // min-width:358px;
   background-color: #01d167;
   color: #fff;
   border-radius: 10px;
   padding: 20px 18px;
-
+max-width:100%;
+height:auto;
   .logo {
     display: flex;
     justify-content: flex-end;

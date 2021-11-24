@@ -18,7 +18,7 @@
             Show card number
           </div>
           
-          <credit-card></credit-card>
+          <credit-card ></credit-card>
         </div>
         <!-- Card features options -->
         <div class="features__section">
@@ -196,6 +196,7 @@ export default {
   flex-wrap: wrap;
   overflow: hidden;
 }
+
 
 .left-col {
   width: 55%;

@@ -1,13 +1,15 @@
 <template>
 <q-layout>
+  <q-page-container>
   <div class="page__container">
     <left-navigation-panel class="large-screen-only"></left-navigation-panel>
-    <div class="main__section small-screen-padding">
+    <q-page>
+    <div class="main__section q-layout-padding flex justify-center small-screen-padding">
       <div class="info-section__wrapper">
         <info-section></info-section>
       </div>
       <div class="dashboard__wrapper">
-<dashboard-panel></dashboard-panel>
+<dashboard-panel ></dashboard-panel>
       </div>
       <q-footer bordered class="bg-white footer text-primary small-screen-only">
         <div v-for="item in navItemsList" :key="item" class="mobile__nav-item">
@@ -21,7 +23,9 @@
 
       </q-footer>
     </div>
+    </q-page>
   </div>
+  </q-page-container>
 </q-layout>
 </template>
 
@@ -73,9 +77,10 @@ export default {
 .main__section {
   width: 100%;
   max-width: 1302px;
-  padding: 48px 104px;
+  // padding: 48px 104px;
 }
 .footer{
+  position: fixed;
     box-shadow: 0px -3px 6px #00000014;
     display: flex;
     justify-content: space-evenly;
