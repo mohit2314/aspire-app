@@ -171,6 +171,7 @@ export default {
   box-shadow: 0px 2px 12px #00000014;
   margin-top: 16px;
   display: flex;
+  justify-content: center;
   padding: 28px;
 min-width: 414px;
   overflow: hidden;
@@ -197,6 +198,12 @@ min-width: 414px;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
+  }
+}
+@media (max-width:600px){
+  .loan__panel{
+  padding: 8px 0px;
+
   }
 }
 </style>
