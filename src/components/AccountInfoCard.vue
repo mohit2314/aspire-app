@@ -111,7 +111,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .account__info-card {
   border: 1px solid #fcfcfc;
   box-shadow: 0px 2px 12px #00000014;

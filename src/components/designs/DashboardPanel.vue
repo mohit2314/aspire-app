@@ -329,6 +329,8 @@ export default {
   padding-bottom: 16px;
   border-bottom: 1px solid #f0f0f0;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 14px 0px;
   .icon {
     height: 48px;
