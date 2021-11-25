@@ -129,6 +129,9 @@ export default {
       get: function () {
         return this.$store.state.loanModule.loanPaid;
       },
+       set: function (newValue) {
+        this.$store.dispatch("loanModule/setLoanPaid", newValue);
+      },
     },
     loanTerms: {
       get: function () {
@@ -162,6 +165,14 @@ export default {
       this.loanRemain = this.loanAmount;
       this.$emit("appliedLoan");
     },
+    applyAgain(){
+      this.applyLoan=!this.applyLoan;
+      this.loanAmount=0;
+      this.loanPaid=0;
+      this.loanRemain=0;
+      this.loanTerms=0;
+      this.checkout=!this.checkout;
+    }
   },
 };
 </script>
