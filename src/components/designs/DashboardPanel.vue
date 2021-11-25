@@ -5,20 +5,48 @@
       <span class="card__tab"> All company cards </span>
     </div>
     <div class="dashboard__card-body row small-screen-padding">
-      <div class="left-col col-xs-10 col-sm-8 col-md-6">
+      <div class="left-col col-xs-12 col-sm-8 col-md-6">
         <!-- Carousel Section -->
         <div class="carousel__section">
        
-          <div class="view__card-number">
+          <div class="view__card-wrap">
+           
+              <div class="view__card-number">
             <img
               src="../../assets/remove_red_eye-24px.svg"
               alt=""
               style="margin-right: 4px"
             />
+            
             Show card number
+            
           </div>
-          
-          <credit-card ></credit-card>
+          </div>
+           <q-carousel
+        v-model="slide"
+        transition-prev="scale"
+        transition-next="scale"
+        swipeable
+        animated
+        control-color="green-3"
+        navigation
+       :navigation-position="'bottom'"
+        :autoplay="true"
+        infinite
+        height="300px"
+        class="bg-transparent rounded-borders"
+      >
+       <q-carousel-slide name="style"  style="padding:0px">
+         <credit-card ref="style" ></credit-card>
+       
+        </q-carousel-slide>
+        <q-carousel-slide name="tv" style="padding:0px">
+          <credit-card  style="background-color:#536DFF"></credit-card>
+        </q-carousel-slide>
+    
+    
+      </q-carousel>
+         
         </div>
         <!-- Card features options -->
         <div class="features__section ">
@@ -33,7 +61,7 @@
         </div>
       </div>
       <div class="right-col col-xs-12 col-sm-8 col-md-6 mobile__bottom-section">
-        <div style="max-width: 366px; margin-left:40px;">
+        <div style="max-width: 366px; margin:auto;">
           <div class="accordian-header">
             <div>
               <img
@@ -122,12 +150,23 @@
 
 <script>
 import CreditCard from "./CreditCard.vue";
+import { ref } from 'vue'
 export default {
   components: {
     CreditCard,
   },
+  created(){
+    // this.slide=this.$refs.style;
+  },
+  setup () {
+    return {
+      slide: ref('style'),
+      lorem: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo provident incidunt ducimus iusto perferendis porro earum. Totam, numquam?'
+    }
+  },
   data() {
     return {
+      // slide:this.$refs.style,
       featuresList: [
         {
           icon: "Freeze_card.svg",
@@ -200,12 +239,19 @@ export default {
 .left-col {
   width: 55%;
 }
-.view__card-number {
-  width: 414px;
-  padding: 6px;
-  display: flex;
+.view__card-wrap{
+ display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding-right: 5px;
+}
+.view__card-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 154px;
+  padding: 2px;
+ 
   color: #01d167;
   font-size: 12px;
   font-weight: 600;

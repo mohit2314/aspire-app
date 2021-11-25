@@ -1,15 +1,17 @@
 <template>
   <div class="info__section">
     <div class="balance__col">
-      <div class="label">Available Balance</div>
+      <div class="label mobile__font-color">Available Balance</div>
       <div class="balance__info">
         <div class="currency__badge"><span>$$</span></div>
-        <div class="amount">3,000</div>
+        <div class="amount mobile__font-size">3,000</div>
       </div>
     </div>
     <!-- CTA Btn -->
     <div class="new__card--cta">
-<q-btn style="background: #325BAF; color: white; font-size:13px;"  icon="add_circle" label="new card"></q-btn>
+      <div class="q-mt-lg flex align-center new__card-link">
+      <img  src="../../assets/box.svg" alt="" class="q-mr-xs "> <span>New card</span></div>
+<q-btn style="background: #325BAF; color: white; font-size:13px;"  class="new__card-btn" icon="add_circle" label="new card"></q-btn>
     </div>
   </div>
 </template>
@@ -34,6 +36,7 @@ width: 100%;
 .label{
     font-size: 14px;
     color: #222222;
+    
 }
     .balance__info{
         display: flex;

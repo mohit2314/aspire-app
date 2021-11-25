@@ -6,6 +6,8 @@
     <q-page>
     <div class="main__section q-layout-padding flex justify-center small-screen-padding">
       <div class="info-section__wrapper  mobile__top-section">
+    <div class="mobile-logo flex justify-end"><div><img src="../assets/Logo_mobile.svg" alt=""></div></div>
+
         <info-section></info-section>
       </div>
       <div class="dashboard__wrapper mobile__top-section">
@@ -75,9 +77,17 @@ export default {
 }
 .info-section__wrapper{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  .mobile-logo{
+    max-width:500px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding:12px 36px 0px 0px;
+  }
 }
 
 .main__section {

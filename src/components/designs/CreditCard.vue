@@ -4,7 +4,7 @@
       <img src="../../assets/Logo_light.svg" alt="" />
     </div>
     <div class="card__details">
-      <div class="name q-mb-md">Mark Henry</div>
+      <div class="name q-mb-md mobile__font-size">Mark Henry</div>
       <div class="card__number">
         <div v-for="n in 4" :key="n" class="white-dot"></div>
         &nbsp;&nbsp;&nbsp;
