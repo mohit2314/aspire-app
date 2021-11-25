@@ -74,7 +74,6 @@
               v-for="item in navigationListItems"
               :key="item"
               class="navigation__list--item"
-              @click="navigateToUiChallenge(item.itemLabel)"
             >
               <span
                 ><img :src="require(`../assets/${item.icon}`)" alt="home"
@@ -102,10 +101,7 @@ export default {
     return {
       leftDrawerOpen: false,
       navigationListItems: [
-        {
-          icon: "design_services_white_24dp.svg",
-          itemLabel: "UI Challenge",
-        },
+ 
         {
           icon: `Home.svg`,
           itemLabel: "Home",
@@ -138,11 +134,7 @@ export default {
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen;
     },
-    navigateToUiChallenge(itemLabel) {
-      if (itemLabel == "UI Challenge") {
-        this.$router.push({ name: "UI" });
-      }
-    },
+   
     logout() {
       this.$store.dispatch('logout');
       this.$router.replace('/');
