@@ -1,5 +1,6 @@
 <template>
   <q-layout class="login-pg">
+    <q-page-container>
     <div class="login-card">
       <div class="brand-col">
         <div class="logo">
@@ -48,6 +49,7 @@
         </div>
       </div>
     </div>
+    </q-page-container>
   </q-layout>
 </template>
 
@@ -144,6 +146,8 @@ else{
   }
 }
 
+
+
 .form-col {
   width: 50%;
   padding: 28px;
@@ -151,6 +155,7 @@ else{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 314px;
   .welcome-msg {
     font-size: 28px;
     font-weight: 600;
