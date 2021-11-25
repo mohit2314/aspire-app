@@ -35,7 +35,7 @@
       <q-input
         class="q-mb-lg"
         outlined
-        v-model="loanAmount"
+        v-model.number="loanAmount"
         label="Amount required"
         type="number"
       />
@@ -173,10 +173,10 @@ export default {
   margin-top: 16px;
   display: flex;
 
-  padding: 28px;
+  padding: 28px 0px 28px 28px;
   max-height: 400px;
-  width: 400px;
-  margin-right: 20px;
+  min-width: 400px;
+  margin-right: 18px;
   .apply__btn {
     display: flex;
     justify-content: center;
@@ -212,6 +212,12 @@ export default {
   }
   .response > div {
     line-height: 2;
+  }
+}
+
+@media (max-width:600px){
+  .apply__panel{
+    margin-right:0px !important;
   }
 }
 </style>

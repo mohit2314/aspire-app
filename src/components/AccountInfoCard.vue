@@ -37,8 +37,8 @@
             <img src="../assets/Card.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span v-if="loanAmount" class="text-h6"> S$ {{ loanAmount }}</span>
-            <span v-else class="text-h6"> S$ - - - </span>
+            <span v-if="loanAmount" class="text-h6 amt-text"> S$ {{ loanAmount }}</span>
+            <span v-else class="text-h6 amt-text"> S$ - - - </span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
             <img src="../assets/Credit.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanPaid || "- - -" }}</span>
+            <span class="text-h6 amt-text"> S$ {{ loanPaid || "- - -" }}</span>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
             <img src="../assets/Payments.svg" alt="" />
           </div>
           <div class="q-ml-md">
-            <span class="text-h6"> S$ {{ loanRemain || "- - -" }}</span>
+            <span class="text-h6 amt-text"> S$ {{ loanRemain || "- - -" }}</span>
           </div>
         </div>
       </div>
@@ -137,7 +137,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 30%;
+  min-width: 220px;
 }
 
 .account__detail-cards {
@@ -166,5 +166,40 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width:600px){
+  .account__avtar{
+    display: none !important;
+  }
+  .account__info-card{
+    padding: 4px !important;
+  }
+    .account__detail-cards{
+      flex-direction: column;
+       height: 0px;
+    width:0px;
+    padding-bottom: 14px !important;
+    }
+  .label{
+    display: none;
+  }
+  .detail-card{
+    border: 0px !important;
+    padding: 0px !important;
+    height: 0px;
+    width:0px;
+  }
+  .card-row{
+    width: 200px;
+  }
+  .amt-text{
+    font-size: 16px !important;
+    color:grey !important;
+  }
+  .icon{
+    height: 42px !important;
+    width:42px !important;
+  }
 }
 </style>

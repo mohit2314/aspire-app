@@ -1,7 +1,7 @@
 <template>
 <q-layout class="q-pa-lg">
   <account-info-card></account-info-card>
-  <div class="row">
+  <div class="row ">
 <loan-apply @appliedLoan="loanGranted=true">
 
 </loan-apply>
@@ -99,4 +99,7 @@ justify-content: space-around;
     align-items: center;
 }
 
+@media (max-width:600px){
+  
+}
 </style>

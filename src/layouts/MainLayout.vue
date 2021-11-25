@@ -20,7 +20,7 @@
 
         <div class="row" style="border-right: 1px solid grey">
           <div
-            class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md"
+            class="bg-grey-5 q-pa-xs q-pt-xs q-mr-md notification"
             style="border-radius: 30%"
           >
             <img
@@ -186,9 +186,15 @@ export default {
   }
 }
 .main-section {
-  // display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 40px 80px;
+}
+
+@media (max-width:600px){
+  .main-section{
+    padding: 0px !important;
+  }
+  .notification{
+    display: none !important;
+  }
 }
 </style>

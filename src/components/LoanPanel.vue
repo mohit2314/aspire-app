@@ -172,7 +172,7 @@ export default {
   margin-top: 16px;
   display: flex;
   padding: 28px;
-
+min-width: 414px;
   overflow: hidden;
 }
 
