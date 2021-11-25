@@ -11,7 +11,8 @@ npm install
 ```bash
 quasar dev
 ```
-
+## 1. UI Challenge
+ To see ui challenge, please go to following path ```/#/ui-challenge```
 
 ### Build the app for production
 ```bash
