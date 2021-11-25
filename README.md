@@ -14,6 +14,9 @@ quasar dev
 # 1. UI Challenge
  To see ui challenge, please go to following path ```/#/ui-challenge```
 
+Just click on the link [UI Challenge](https://aspire-challenge.netlify.app/#/ui-challenge)
+
+
   ## Things done
      1. Mobile responsive (Mobile viewport 414px as shared in design)
      2. Caraousel effect
@@ -23,6 +26,8 @@ Note:- Please reload page
  
  # 2. Code Challenge
 To see code challenge, app by default opens up on login page, but can also be navigated through following path ```/#/login ```
+
+Click on link to see  [Code Challenge](https://aspire-challenge.netlify.app/#/login)
 
  ## Things done 
      1. Login/Signup Authentication using email with firebase
