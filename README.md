@@ -13,6 +13,11 @@ quasar dev
 ```
 ## 1. UI Challenge
  To see ui challenge, please go to following path ```/#/ui-challenge```
+ 
+Note:- Please reload page 
+ 
+ ## 2. Code Challenge
+To see code challenge, app by default opens up on login page, but can also be navigated through following path ```/#/login ```
 
 ### Build the app for production
 ```bash
