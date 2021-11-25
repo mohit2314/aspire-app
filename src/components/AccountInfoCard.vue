@@ -119,7 +119,7 @@ export default {
   display: flex;
   align-items: center;
   // flex-wrap: wrap;
-
+min-width: 414px;
   padding: 16px;
   overflow: hidden;
 
